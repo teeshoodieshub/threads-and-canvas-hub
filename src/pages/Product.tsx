@@ -97,26 +97,26 @@ const Product = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-blue-50">
+    <div className="min-h-screen bg-background">
       {/* Navigation */}
-      <nav className="bg-white/80 backdrop-blur-md border-b border-purple-100 sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
+      <nav className="bg-background/80 backdrop-blur-md border-b border-border sticky top-0 z-50">
+        <div className="max-w-6xl mx-auto px-6 lg:px-8">
+          <div className="flex justify-between items-center h-20">
             <Link to="/" className="flex items-center space-x-2">
-              <div className="w-10 h-10 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg">T&H</span>
+              <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+                <span className="text-primary-foreground font-bold text-sm">T&H</span>
               </div>
-              <span className="text-xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+              <span className="text-xl font-semibold text-foreground">
                 Tees & Hoodies Hub
               </span>
             </Link>
             
-            <div className="hidden md:flex items-center space-x-8">
-              <Link to="/" className="text-gray-700 hover:text-purple-600 transition-colors">Home</Link>
-              <Link to="/shop" className="text-gray-700 hover:text-purple-600 transition-colors">Shop</Link>
-              <Link to="/design" className="text-gray-700 hover:text-purple-600 transition-colors">Design Your Own</Link>
-              <Link to="/cart" className="flex items-center space-x-2 text-gray-700 hover:text-purple-600 transition-colors">
-                <ShoppingCart className="h-5 w-5" />
+            <div className="hidden md:flex items-center space-x-10">
+              <Link to="/" className="text-muted-foreground hover:text-foreground transition-colors">Home</Link>
+              <Link to="/shop" className="text-muted-foreground hover:text-foreground transition-colors">Shop</Link>
+              <Link to="/design" className="text-muted-foreground hover:text-foreground transition-colors">Design Your Own</Link>
+              <Link to="/cart" className="flex items-center space-x-2 text-muted-foreground hover:text-foreground transition-colors">
+                <ShoppingCart className="h-4 w-4" />
                 <span>Cart</span>
               </Link>
             </div>
@@ -124,19 +124,19 @@ const Product = () => {
         </div>
       </nav>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="max-w-6xl mx-auto px-6 lg:px-8 py-16">
         {/* Breadcrumb */}
-        <div className="flex items-center space-x-2 mb-8 text-sm">
-          <Link to="/shop" className="flex items-center text-purple-600 hover:text-purple-700">
+        <div className="flex items-center space-x-2 mb-12 text-sm">
+          <Link to="/shop" className="flex items-center text-foreground hover:text-muted-foreground">
             <ArrowLeft className="h-4 w-4 mr-1" />
             Back to Shop
           </Link>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="grid lg:grid-cols-2 gap-16">
           {/* Product Images */}
-          <div className="space-y-4">
-            <div className="aspect-square rounded-lg overflow-hidden bg-white border border-purple-100">
+          <div className="space-y-6">
+            <div className="aspect-square rounded-2xl overflow-hidden bg-card border border-border">
               <img 
                 src={product.images[selectedImage]} 
                 alt={product.name}
@@ -148,8 +148,8 @@ const Product = () => {
                 <button
                   key={index}
                   onClick={() => setSelectedImage(index)}
-                  className={`aspect-square rounded-lg overflow-hidden border-2 transition-colors ${
-                    selectedImage === index ? 'border-purple-600' : 'border-gray-200'
+                  className={`aspect-square rounded-xl overflow-hidden border-2 transition-colors ${
+                    selectedImage === index ? 'border-accent' : 'border-border'
                   }`}
                 >
                   <img 
@@ -163,55 +163,55 @@ const Product = () => {
           </div>
 
           {/* Product Details */}
-          <div className="space-y-6">
+          <div className="space-y-8">
             <div>
-              <Badge className="mb-4 bg-gradient-to-r from-purple-600 to-blue-600">
+              <Badge className="mb-6 bg-accent hover:bg-accent text-accent-foreground">
                 {product.category.replace('-', ' ')}
               </Badge>
-              <h1 className="text-4xl font-bold text-gray-900 mb-4">{product.name}</h1>
-              <div className="flex items-center space-x-4 mb-6">
-                <span className="text-3xl font-bold text-purple-600">${product.price}</span>
+              <h1 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">{product.name}</h1>
+              <div className="flex items-center space-x-6 mb-8">
+                <span className="text-3xl font-bold text-foreground">${product.price}</span>
                 <div className="flex items-center space-x-1">
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
                   ))}
-                  <span className="text-gray-600 ml-2">(124 reviews)</span>
+                  <span className="text-muted-foreground ml-2">(124 reviews)</span>
                 </div>
               </div>
-              <p className="text-gray-600 text-lg leading-relaxed">{product.description}</p>
+              <p className="text-muted-foreground text-lg leading-relaxed">{product.description}</p>
             </div>
 
             {/* Design Option */}
-            <Card className="bg-white/80 backdrop-blur-sm border-purple-100">
-              <CardContent className="p-6">
-                <h3 className="text-lg font-semibold mb-4">Choose Your Option</h3>
-                <div className="grid grid-cols-2 gap-4">
+            <Card className="bg-card border-border">
+              <CardContent className="p-8">
+                <h3 className="text-lg font-semibold mb-6">Choose Your Option</h3>
+                <div className="grid grid-cols-2 gap-6">
                   <button
                     onClick={() => setDesignOption("as-is")}
-                    className={`p-4 rounded-lg border-2 transition-colors ${
+                    className={`p-6 rounded-xl border-2 transition-all ${
                       designOption === "as-is" 
-                        ? 'border-purple-600 bg-purple-50' 
-                        : 'border-gray-200 hover:border-purple-300'
+                        ? 'border-accent bg-accent/10' 
+                        : 'border-border hover:border-accent/50'
                     }`}
                   >
                     <div className="text-center">
-                      <ShoppingCart className="h-8 w-8 mx-auto mb-2 text-purple-600" />
-                      <h4 className="font-semibold">Buy As-Is</h4>
-                      <p className="text-sm text-gray-600">Plain product without custom design</p>
+                      <ShoppingCart className="h-8 w-8 mx-auto mb-3 text-accent" />
+                      <h4 className="font-semibold text-foreground">Buy As-Is</h4>
+                      <p className="text-sm text-muted-foreground mt-1">Plain product without custom design</p>
                     </div>
                   </button>
                   <button
                     onClick={() => setDesignOption("custom")}
-                    className={`p-4 rounded-lg border-2 transition-colors ${
+                    className={`p-6 rounded-xl border-2 transition-all ${
                       designOption === "custom" 
-                        ? 'border-purple-600 bg-purple-50' 
-                        : 'border-gray-200 hover:border-purple-300'
+                        ? 'border-accent bg-accent/10' 
+                        : 'border-border hover:border-accent/50'
                     }`}
                   >
                     <div className="text-center">
-                      <Palette className="h-8 w-8 mx-auto mb-2 text-purple-600" />
-                      <h4 className="font-semibold">Upload Design</h4>
-                      <p className="text-sm text-gray-600">Add your custom design</p>
+                      <Palette className="h-8 w-8 mx-auto mb-3 text-accent" />
+                      <h4 className="font-semibold text-foreground">Upload Design</h4>
+                      <p className="text-sm text-muted-foreground mt-1">Add your custom design</p>
                     </div>
                   </button>
                 </div>
@@ -220,16 +220,16 @@ const Product = () => {
 
             {/* Color Selection */}
             <div>
-              <h3 className="text-lg font-semibold mb-4">Color: {selectedColor}</h3>
-              <div className="flex space-x-3">
+              <h3 className="text-lg font-semibold mb-6 text-foreground">Color: {selectedColor}</h3>
+              <div className="flex space-x-4">
                 {product.colors.map((color) => (
                   <button
                     key={color}
                     onClick={() => setSelectedColor(color)}
-                    className={`w-12 h-12 rounded-full border-4 transition-all ${
+                    className={`w-12 h-12 rounded-xl border-4 transition-all ${
                       selectedColor === color 
-                        ? 'border-purple-600 scale-110' 
-                        : 'border-gray-300 hover:border-purple-400'
+                        ? 'border-accent scale-110' 
+                        : 'border-border hover:border-accent/50'
                     } ${
                       color === 'black' ? 'bg-black' :
                       color === 'white' ? 'bg-white' :
@@ -246,9 +246,9 @@ const Product = () => {
 
             {/* Size Selection */}
             <div>
-              <h3 className="text-lg font-semibold mb-4">Size</h3>
+              <h3 className="text-lg font-semibold mb-6 text-foreground">Size</h3>
               <Select value={selectedSize} onValueChange={setSelectedSize}>
-                <SelectTrigger className="w-32 border-purple-200">
+                <SelectTrigger className="w-32 border-border">
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
@@ -260,30 +260,30 @@ const Product = () => {
             </div>
 
             {/* Add to Cart */}
-            <div className="space-y-4">
+            <div className="space-y-6">
               <Button 
                 onClick={handleAddToCart}
                 size="lg" 
-                className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-lg py-6"
+                className="w-full bg-accent hover:bg-accent/90 text-accent-foreground text-lg py-6 font-medium"
               >
                 {designOption === "custom" ? "Customize & Add to Cart" : "Add to Cart"}
               </Button>
               
               {designOption === "custom" && (
-                <p className="text-sm text-gray-600 text-center">
+                <p className="text-sm text-muted-foreground text-center">
                   You'll be redirected to our design tool to upload and position your design
                 </p>
               )}
             </div>
 
             {/* Product Features */}
-            <Card className="bg-white/80 backdrop-blur-sm border-purple-100">
-              <CardContent className="p-6">
-                <h3 className="text-lg font-semibold mb-4">Product Features</h3>
-                <ul className="space-y-2">
+            <Card className="bg-card border-border">
+              <CardContent className="p-8">
+                <h3 className="text-lg font-semibold mb-6 text-foreground">Product Features</h3>
+                <ul className="space-y-3">
                   {product.features.map((feature, index) => (
-                    <li key={index} className="flex items-center text-gray-700">
-                      <div className="w-2 h-2 bg-purple-600 rounded-full mr-3"></div>
+                    <li key={index} className="flex items-center text-muted-foreground">
+                      <div className="w-2 h-2 bg-accent rounded-full mr-4"></div>
                       {feature}
                     </li>
                   ))}

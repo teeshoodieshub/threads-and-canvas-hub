@@ -201,26 +201,26 @@ const Design = () => {
   const currentProduct = products.find(p => p.id === selectedProduct);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-blue-50">
+    <div className="min-h-screen bg-background">
       {/* Navigation */}
-      <nav className="bg-white/80 backdrop-blur-md border-b border-purple-100 sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
+      <nav className="bg-background/80 backdrop-blur-md border-b border-border sticky top-0 z-50">
+        <div className="max-w-6xl mx-auto px-6 lg:px-8">
+          <div className="flex justify-between items-center h-20">
             <Link to="/" className="flex items-center space-x-2">
-              <div className="w-10 h-10 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg">T&H</span>
+              <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+                <span className="text-primary-foreground font-bold text-sm">T&H</span>
               </div>
-              <span className="text-xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+              <span className="text-xl font-semibold text-foreground">
                 Tees & Hoodies Hub
               </span>
             </Link>
             
-            <div className="hidden md:flex items-center space-x-8">
-              <Link to="/" className="text-gray-700 hover:text-purple-600 transition-colors">Home</Link>
-              <Link to="/shop" className="text-gray-700 hover:text-purple-600 transition-colors">Shop</Link>
-              <Link to="/design" className="text-purple-600 font-semibold">Design Your Own</Link>
-              <Link to="/cart" className="flex items-center space-x-2 text-gray-700 hover:text-purple-600 transition-colors">
-                <ShoppingCart className="h-5 w-5" />
+            <div className="hidden md:flex items-center space-x-10">
+              <Link to="/" className="text-muted-foreground hover:text-foreground transition-colors">Home</Link>
+              <Link to="/shop" className="text-muted-foreground hover:text-foreground transition-colors">Shop</Link>
+              <Link to="/design" className="text-foreground font-medium">Design Your Own</Link>
+              <Link to="/cart" className="flex items-center space-x-2 text-muted-foreground hover:text-foreground transition-colors">
+                <ShoppingCart className="h-4 w-4" />
                 <span>Cart</span>
               </Link>
             </div>
@@ -228,25 +228,25 @@ const Design = () => {
         </div>
       </nav>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="mb-8">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Design Your Own</h1>
-          <p className="text-xl text-gray-600">Upload your design and create custom apparel</p>
+      <div className="max-w-6xl mx-auto px-6 lg:px-8 py-16">
+        <div className="mb-16">
+          <h1 className="text-5xl lg:text-6xl font-bold text-foreground mb-6">Design your own</h1>
+          <p className="text-xl text-muted-foreground">Upload your design and create custom apparel</p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8">
+        <div className="grid lg:grid-cols-3 gap-12">
           {/* Design Canvas */}
           <div className="lg:col-span-2">
-            <Card className="bg-white/80 backdrop-blur-sm border-purple-100">
-              <CardContent className="p-6">
-                <div className="flex justify-between items-center mb-4">
-                  <h3 className="text-lg font-semibold">Design Canvas</h3>
-                  <div className="flex space-x-2">
+            <Card className="bg-card border-border">
+              <CardContent className="p-8">
+                <div className="flex justify-between items-center mb-6">
+                  <h3 className="text-lg font-semibold text-foreground">Design Canvas</h3>
+                  <div className="flex space-x-3">
                     <Button
                       variant="outline"
                       size="sm"
                       onClick={() => fileInputRef.current?.click()}
-                      className="border-purple-200"
+                      className="border-border hover:bg-muted/50"
                     >
                       <Upload className="h-4 w-4 mr-2" />
                       Upload
@@ -255,7 +255,7 @@ const Design = () => {
                       variant="outline"
                       size="sm"
                       onClick={handleClearCanvas}
-                      className="border-purple-200"
+                      className="border-border hover:bg-muted/50"
                     >
                       <RotateCcw className="h-4 w-4 mr-2" />
                       Clear
@@ -263,8 +263,8 @@ const Design = () => {
                   </div>
                 </div>
                 
-                <div className="border-2 border-dashed border-purple-200 rounded-lg p-4 bg-gray-50">
-                  <canvas ref={canvasRef} className="mx-auto border border-gray-300 rounded-lg shadow-sm" />
+                <div className="border-2 border-dashed border-border rounded-2xl p-6 bg-muted/30">
+                  <canvas ref={canvasRef} className="mx-auto border border-border rounded-xl shadow-sm" />
                 </div>
 
                 <input
@@ -276,9 +276,9 @@ const Design = () => {
                 />
 
                 {/* Design Controls */}
-                <div className="mt-6 space-y-4">
+                <div className="mt-8 space-y-6">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-foreground mb-3">
                       Scale: {designScale[0].toFixed(2)}x
                     </label>
                     <Slider
@@ -292,7 +292,7 @@ const Design = () => {
                   </div>
                   
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-foreground mb-3">
                       Rotation: {designRotation[0]}°
                     </label>
                     <Slider
@@ -310,13 +310,13 @@ const Design = () => {
           </div>
 
           {/* Product Configuration */}
-          <div className="space-y-6">
+          <div className="space-y-8">
             {/* Product Selection */}
-            <Card className="bg-white/80 backdrop-blur-sm border-purple-100">
-              <CardContent className="p-6">
-                <h3 className="text-lg font-semibold mb-4">Product</h3>
+            <Card className="bg-card border-border">
+              <CardContent className="p-8">
+                <h3 className="text-lg font-semibold mb-6 text-foreground">Product</h3>
                 <Select value={selectedProduct} onValueChange={setSelectedProduct}>
-                  <SelectTrigger className="border-purple-200">
+                  <SelectTrigger className="border-border">
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
@@ -329,11 +329,11 @@ const Design = () => {
                 </Select>
                 
                 {currentProduct && (
-                  <div className="mt-4">
+                  <div className="mt-6">
                     <img 
                       src={currentProduct.image} 
                       alt={currentProduct.name}
-                      className="w-full h-32 object-cover rounded-lg"
+                      className="w-full h-32 object-cover rounded-xl"
                     />
                   </div>
                 )}
@@ -341,18 +341,18 @@ const Design = () => {
             </Card>
 
             {/* Color Selection */}
-            <Card className="bg-white/80 backdrop-blur-sm border-purple-100">
-              <CardContent className="p-6">
-                <h3 className="text-lg font-semibold mb-4">Color: {selectedColor}</h3>
-                <div className="grid grid-cols-5 gap-2">
+            <Card className="bg-card border-border">
+              <CardContent className="p-8">
+                <h3 className="text-lg font-semibold mb-6 text-foreground">Color: {selectedColor}</h3>
+                <div className="grid grid-cols-5 gap-3">
                   {colors.map((color) => (
                     <button
                       key={color.name}
                       onClick={() => setSelectedColor(color.name)}
-                      className={`w-12 h-12 rounded-lg border-4 transition-all ${
+                      className={`w-12 h-12 rounded-xl border-4 transition-all ${
                         selectedColor === color.name 
-                          ? 'border-purple-600 scale-110' 
-                          : 'border-gray-300 hover:border-purple-400'
+                          ? 'border-accent scale-110' 
+                          : 'border-border hover:border-accent/50'
                       }`}
                       style={{ backgroundColor: color.hex }}
                       title={color.name}
@@ -363,11 +363,11 @@ const Design = () => {
             </Card>
 
             {/* Size Selection */}
-            <Card className="bg-white/80 backdrop-blur-sm border-purple-100">
-              <CardContent className="p-6">
-                <h3 className="text-lg font-semibold mb-4">Size</h3>
+            <Card className="bg-card border-border">
+              <CardContent className="p-8">
+                <h3 className="text-lg font-semibold mb-6 text-foreground">Size</h3>
                 <Select value={selectedSize} onValueChange={setSelectedSize}>
-                  <SelectTrigger className="border-purple-200">
+                  <SelectTrigger className="border-border">
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
@@ -380,18 +380,18 @@ const Design = () => {
             </Card>
 
             {/* Price and Add to Cart */}
-            <Card className="bg-white/80 backdrop-blur-sm border-purple-100">
-              <CardContent className="p-6">
+            <Card className="bg-card border-border">
+              <CardContent className="p-8">
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-purple-600 mb-2">
+                  <div className="text-3xl font-bold text-foreground mb-3">
                     ${currentProduct ? currentProduct.price + 10 : 35}
                   </div>
-                  <p className="text-sm text-gray-600 mb-4">
+                  <p className="text-sm text-muted-foreground mb-6">
                     Base price + $10 for custom design
                   </p>
                   <Button 
                     onClick={handleSaveToCart}
-                    className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700"
+                    className="w-full bg-accent hover:bg-accent/90 text-accent-foreground"
                     size="lg"
                   >
                     <ShoppingCart className="h-5 w-5 mr-2" />
@@ -402,10 +402,10 @@ const Design = () => {
             </Card>
 
             {/* Instructions */}
-            <Card className="bg-white/80 backdrop-blur-sm border-purple-100">
-              <CardContent className="p-6">
-                <h3 className="text-lg font-semibold mb-4">How to Design</h3>
-                <ol className="list-decimal list-inside space-y-2 text-sm text-gray-600">
+            <Card className="bg-card border-border">
+              <CardContent className="p-8">
+                <h3 className="text-lg font-semibold mb-6 text-foreground">How to Design</h3>
+                <ol className="list-decimal list-inside space-y-3 text-sm text-muted-foreground">
                   <li>Upload your design image (PNG, JPG, SVG)</li>
                   <li>Select your product type and color</li>
                   <li>Use the sliders to adjust size and rotation</li>

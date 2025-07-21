@@ -25,26 +25,26 @@ const Cart = () => {
 
   if (items.length === 0) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-blue-50">
+      <div className="min-h-screen bg-background">
         {/* Navigation */}
-        <nav className="bg-white/80 backdrop-blur-md border-b border-purple-100 sticky top-0 z-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex justify-between items-center h-16">
+        <nav className="bg-background/80 backdrop-blur-md border-b border-border sticky top-0 z-50">
+          <div className="max-w-6xl mx-auto px-6 lg:px-8">
+            <div className="flex justify-between items-center h-20">
               <Link to="/" className="flex items-center space-x-2">
-                <div className="w-10 h-10 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold text-lg">T&H</span>
+                <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+                  <span className="text-primary-foreground font-bold text-sm">T&H</span>
                 </div>
-                <span className="text-xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+                <span className="text-xl font-semibold text-foreground">
                   Tees & Hoodies Hub
                 </span>
               </Link>
               
-              <div className="hidden md:flex items-center space-x-8">
-                <Link to="/" className="text-gray-700 hover:text-purple-600 transition-colors">Home</Link>
-                <Link to="/shop" className="text-gray-700 hover:text-purple-600 transition-colors">Shop</Link>
-                <Link to="/design" className="text-gray-700 hover:text-purple-600 transition-colors">Design Your Own</Link>
-                <Link to="/cart" className="flex items-center space-x-2 text-purple-600 font-semibold">
-                  <ShoppingCart className="h-5 w-5" />
+              <div className="hidden md:flex items-center space-x-10">
+                <Link to="/" className="text-muted-foreground hover:text-foreground transition-colors">Home</Link>
+                <Link to="/shop" className="text-muted-foreground hover:text-foreground transition-colors">Shop</Link>
+                <Link to="/design" className="text-muted-foreground hover:text-foreground transition-colors">Design Your Own</Link>
+                <Link to="/cart" className="flex items-center space-x-2 text-foreground font-medium">
+                  <ShoppingCart className="h-4 w-4" />
                   <span>Cart</span>
                 </Link>
               </div>
@@ -52,18 +52,18 @@ const Cart = () => {
           </div>
         </nav>
 
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="max-w-4xl mx-auto px-6 lg:px-8 py-24">
           <div className="text-center">
-            <div className="text-8xl mb-8">🛒</div>
-            <h1 className="text-4xl font-bold text-gray-900 mb-4">Your Cart is Empty</h1>
-            <p className="text-xl text-gray-600 mb-8">
+            <div className="text-8xl mb-12">🛒</div>
+            <h1 className="text-5xl lg:text-6xl font-bold text-foreground mb-6">Your cart is empty</h1>
+            <p className="text-xl text-muted-foreground mb-12">
               Start shopping or design your own custom apparel!
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700">
+              <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground">
                 <Link to="/shop">Browse Products</Link>
               </Button>
-              <Button asChild variant="outline" size="lg" className="border-purple-200 hover:bg-purple-50">
+              <Button asChild variant="outline" size="lg" className="border-border hover:bg-muted/50">
                 <Link to="/design">Design Your Own</Link>
               </Button>
             </div>
@@ -74,26 +74,26 @@ const Cart = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-blue-50">
+    <div className="min-h-screen bg-background">
       {/* Navigation */}
-      <nav className="bg-white/80 backdrop-blur-md border-b border-purple-100 sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
+      <nav className="bg-background/80 backdrop-blur-md border-b border-border sticky top-0 z-50">
+        <div className="max-w-6xl mx-auto px-6 lg:px-8">
+          <div className="flex justify-between items-center h-20">
             <Link to="/" className="flex items-center space-x-2">
-              <div className="w-10 h-10 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg">T&H</span>
+              <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+                <span className="text-primary-foreground font-bold text-sm">T&H</span>
               </div>
-              <span className="text-xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+              <span className="text-xl font-semibold text-foreground">
                 Tees & Hoodies Hub
               </span>
             </Link>
             
-            <div className="hidden md:flex items-center space-x-8">
-              <Link to="/" className="text-gray-700 hover:text-purple-600 transition-colors">Home</Link>
-              <Link to="/shop" className="text-gray-700 hover:text-purple-600 transition-colors">Shop</Link>
-              <Link to="/design" className="text-gray-700 hover:text-purple-600 transition-colors">Design Your Own</Link>
-              <Link to="/cart" className="flex items-center space-x-2 text-purple-600 font-semibold">
-                <ShoppingCart className="h-5 w-5" />
+            <div className="hidden md:flex items-center space-x-10">
+              <Link to="/" className="text-muted-foreground hover:text-foreground transition-colors">Home</Link>
+              <Link to="/shop" className="text-muted-foreground hover:text-foreground transition-colors">Shop</Link>
+              <Link to="/design" className="text-muted-foreground hover:text-foreground transition-colors">Design Your Own</Link>
+              <Link to="/cart" className="flex items-center space-x-2 text-foreground font-medium">
+                <ShoppingCart className="h-4 w-4" />
                 <span>Cart ({getTotalItems()})</span>
               </Link>
             </div>
@@ -101,20 +101,20 @@ const Cart = () => {
         </div>
       </nav>
 
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="mb-8">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Shopping Cart</h1>
-          <p className="text-xl text-gray-600">{getTotalItems()} item{getTotalItems() !== 1 ? 's' : ''} in your cart</p>
+      <div className="max-w-4xl mx-auto px-6 lg:px-8 py-16">
+        <div className="mb-16">
+          <h1 className="text-5xl lg:text-6xl font-bold text-foreground mb-6">Shopping cart</h1>
+          <p className="text-xl text-muted-foreground">{getTotalItems()} item{getTotalItems() !== 1 ? 's' : ''} in your cart</p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8">
+        <div className="grid lg:grid-cols-3 gap-12">
           {/* Cart Items */}
-          <div className="lg:col-span-2 space-y-4">
+          <div className="lg:col-span-2 space-y-6">
             {items.map((item) => (
-              <Card key={item.id} className="bg-white/80 backdrop-blur-sm border-purple-100">
-                <CardContent className="p-6">
-                  <div className="flex items-start space-x-4">
-                    <div className="w-24 h-24 rounded-lg overflow-hidden bg-gray-100 flex-shrink-0">
+              <Card key={item.id} className="bg-card border-border">
+                <CardContent className="p-8">
+                  <div className="flex items-start space-x-6">
+                    <div className="w-24 h-24 rounded-xl overflow-hidden bg-muted flex-shrink-0">
                       <img 
                         src={item.image} 
                         alt={item.name}
@@ -123,36 +123,36 @@ const Cart = () => {
                     </div>
                     
                     <div className="flex-1 min-w-0">
-                      <h3 className="text-lg font-semibold text-gray-900 mb-1">{item.name}</h3>
+                      <h3 className="text-xl font-semibold text-foreground mb-2">{item.name}</h3>
                       {item.isCustom && (
-                        <span className="inline-block px-2 py-1 bg-gradient-to-r from-purple-600 to-blue-600 text-white text-xs rounded-full mb-2">
+                        <span className="inline-block px-3 py-1 bg-accent text-accent-foreground text-xs rounded-full mb-3">
                           Custom Design
                         </span>
                       )}
-                      <div className="flex items-center space-x-4 text-sm text-gray-600 mb-3">
+                      <div className="flex items-center space-x-6 text-sm text-muted-foreground mb-4">
                         <span>Size: {item.size}</span>
                         <span>Color: {item.color}</span>
                       </div>
                       
                       <div className="flex items-center justify-between">
-                        <div className="flex items-center space-x-3">
+                        <div className="flex items-center space-x-4">
                           <button
                             onClick={() => handleQuantityChange(item.id, item.quantity - 1)}
-                            className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-50 transition-colors"
+                            className="w-8 h-8 rounded-full border border-border flex items-center justify-center hover:bg-muted/50 transition-colors"
                           >
                             <Minus className="h-4 w-4" />
                           </button>
-                          <span className="w-8 text-center font-semibold">{item.quantity}</span>
+                          <span className="w-8 text-center font-semibold text-foreground">{item.quantity}</span>
                           <button
                             onClick={() => handleQuantityChange(item.id, item.quantity + 1)}
-                            className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-50 transition-colors"
+                            className="w-8 h-8 rounded-full border border-border flex items-center justify-center hover:bg-muted/50 transition-colors"
                           >
                             <Plus className="h-4 w-4" />
                           </button>
                         </div>
                         
-                        <div className="flex items-center space-x-4">
-                          <span className="text-xl font-bold text-purple-600">
+                        <div className="flex items-center space-x-6">
+                          <span className="text-xl font-bold text-foreground">
                             ${(item.price * item.quantity).toFixed(2)}
                           </span>
                           <button
@@ -172,48 +172,48 @@ const Cart = () => {
 
           {/* Order Summary */}
           <div className="lg:col-span-1">
-            <Card className="bg-white/80 backdrop-blur-sm border-purple-100 sticky top-24">
-              <CardContent className="p-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-6">Order Summary</h3>
+            <Card className="bg-card border-border sticky top-32">
+              <CardContent className="p-8">
+                <h3 className="text-xl font-semibold text-foreground mb-8">Order Summary</h3>
                 
-                <div className="space-y-3 mb-6">
-                  <div className="flex justify-between text-gray-600">
+                <div className="space-y-4 mb-8">
+                  <div className="flex justify-between text-muted-foreground">
                     <span>Subtotal ({getTotalItems()} items)</span>
                     <span>${getTotalPrice().toFixed(2)}</span>
                   </div>
-                  <div className="flex justify-between text-gray-600">
+                  <div className="flex justify-between text-muted-foreground">
                     <span>Shipping</span>
-                    <span>Free</span>
+                    <span className="text-green-600">Free</span>
                   </div>
-                  <div className="flex justify-between text-gray-600">
+                  <div className="flex justify-between text-muted-foreground">
                     <span>Tax</span>
                     <span>${(getTotalPrice() * 0.08).toFixed(2)}</span>
                   </div>
-                  <div className="border-t border-gray-200 pt-3">
-                    <div className="flex justify-between text-xl font-bold text-gray-900">
+                  <div className="border-t border-border pt-4">
+                    <div className="flex justify-between text-xl font-bold text-foreground">
                       <span>Total</span>
                       <span>${(getTotalPrice() * 1.08).toFixed(2)}</span>
                     </div>
                   </div>
                 </div>
 
-                <Button asChild size="lg" className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700">
+                <Button asChild size="lg" className="w-full bg-accent hover:bg-accent/90 text-accent-foreground mb-4">
                   <Link to="/checkout">
                     Proceed to Checkout
                     <ArrowRight className="h-5 w-5 ml-2" />
                   </Link>
                 </Button>
 
-                <div className="mt-4 text-center">
-                  <Link to="/shop" className="text-purple-600 hover:text-purple-700 text-sm">
+                <div className="text-center">
+                  <Link to="/shop" className="text-muted-foreground hover:text-foreground text-sm">
                     Continue Shopping
                   </Link>
                 </div>
 
                 {/* Security badges */}
-                <div className="mt-6 pt-6 border-t border-gray-200">
-                  <div className="text-center text-sm text-gray-600">
-                    <p className="font-semibold mb-2">Secure Checkout</p>
+                <div className="mt-8 pt-8 border-t border-border">
+                  <div className="text-center text-sm text-muted-foreground">
+                    <p className="font-semibold mb-3">Secure Checkout</p>
                     <div className="flex justify-center space-x-2 text-xs">
                       <span className="px-2 py-1 bg-green-100 text-green-700 rounded">256-bit SSL</span>
                       <span className="px-2 py-1 bg-blue-100 text-blue-700 rounded">Secure</span>

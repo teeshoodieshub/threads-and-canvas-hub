@@ -151,26 +151,26 @@ const Shop = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-blue-50">
+    <div className="min-h-screen bg-background">
       {/* Navigation */}
-      <nav className="bg-white/80 backdrop-blur-md border-b border-purple-100 sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
+      <nav className="bg-background/80 backdrop-blur-md border-b border-border sticky top-0 z-50">
+        <div className="max-w-6xl mx-auto px-6 lg:px-8">
+          <div className="flex justify-between items-center h-20">
             <Link to="/" className="flex items-center space-x-2">
-              <div className="w-10 h-10 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg">T&H</span>
+              <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+                <span className="text-primary-foreground font-bold text-sm">T&H</span>
               </div>
-              <span className="text-xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+              <span className="text-xl font-semibold text-foreground">
                 Tees & Hoodies Hub
               </span>
             </Link>
             
-            <div className="hidden md:flex items-center space-x-8">
-              <Link to="/" className="text-gray-700 hover:text-purple-600 transition-colors">Home</Link>
-              <Link to="/shop" className="text-purple-600 font-semibold">Shop</Link>
-              <Link to="/design" className="text-gray-700 hover:text-purple-600 transition-colors">Design Your Own</Link>
-              <Link to="/cart" className="flex items-center space-x-2 text-gray-700 hover:text-purple-600 transition-colors">
-                <ShoppingCart className="h-5 w-5" />
+            <div className="hidden md:flex items-center space-x-10">
+              <Link to="/" className="text-muted-foreground hover:text-foreground transition-colors">Home</Link>
+              <Link to="/shop" className="text-foreground font-medium">Shop</Link>
+              <Link to="/design" className="text-muted-foreground hover:text-foreground transition-colors">Design Your Own</Link>
+              <Link to="/cart" className="flex items-center space-x-2 text-muted-foreground hover:text-foreground transition-colors">
+                <ShoppingCart className="h-4 w-4" />
                 <span>Cart</span>
               </Link>
             </div>
@@ -178,28 +178,28 @@ const Shop = () => {
         </div>
       </nav>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="max-w-6xl mx-auto px-6 lg:px-8 py-16">
         {/* Header */}
-        <div className="mb-8">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Shop All Products</h1>
-          <p className="text-xl text-gray-600">Discover our collection of premium apparel</p>
+        <div className="mb-16">
+          <h1 className="text-5xl lg:text-6xl font-bold text-foreground mb-6">Shop all products</h1>
+          <p className="text-xl text-muted-foreground">Discover our collection of premium apparel</p>
         </div>
 
         {/* Filters and Search */}
-        <div className="bg-white/80 backdrop-blur-sm rounded-lg p-6 mb-8 border border-purple-100">
-          <div className="flex flex-col md:flex-row gap-4 items-center">
-            <div className="flex items-center space-x-2 flex-1">
-              <Search className="h-5 w-5 text-gray-400" />
+        <div className="bg-card rounded-2xl p-8 mb-12 border border-border">
+          <div className="flex flex-col md:flex-row gap-6 items-center">
+            <div className="flex items-center space-x-3 flex-1">
+              <Search className="h-5 w-5 text-muted-foreground" />
               <Input
                 placeholder="Search products..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="border-purple-200 focus:border-purple-400"
+                className="border-border focus:border-accent bg-background"
               />
             </div>
             
             <Select value={selectedCategory} onValueChange={setSelectedCategory}>
-              <SelectTrigger className="w-48 border-purple-200">
+              <SelectTrigger className="w-56 border-border">
                 <Filter className="h-4 w-4 mr-2" />
                 <SelectValue />
               </SelectTrigger>
@@ -213,7 +213,7 @@ const Shop = () => {
             </Select>
 
             <Select value={sortBy} onValueChange={setSortBy}>
-              <SelectTrigger className="w-48 border-purple-200">
+              <SelectTrigger className="w-56 border-border">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
@@ -228,30 +228,30 @@ const Shop = () => {
         {/* Products Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProducts.map((product) => (
-            <Card key={product.id} className="group hover:shadow-xl transition-all duration-300 border-0 bg-white/80 backdrop-blur-sm">
+            <Card key={product.id} className="group hover:shadow-lg transition-all duration-500 border-0 bg-card overflow-hidden">
               <CardContent className="p-0">
-                <div className="relative overflow-hidden rounded-t-lg">
+                <div className="relative overflow-hidden">
                   <img 
                     src={product.image} 
                     alt={product.name}
-                    className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                    className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-700"
                   />
-                  <Badge className="absolute top-4 left-4 bg-gradient-to-r from-purple-600 to-blue-600">
+                  <Badge className="absolute top-6 left-6 bg-accent hover:bg-accent text-accent-foreground">
                     {product.category.replace('-', ' ')}
                   </Badge>
                 </div>
                 
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">{product.name}</h3>
-                  <p className="text-gray-600 mb-4">{product.description}</p>
+                <div className="p-8">
+                  <h3 className="text-xl font-semibold text-foreground mb-3">{product.name}</h3>
+                  <p className="text-muted-foreground mb-6 leading-relaxed">{product.description}</p>
                   
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="text-2xl font-bold text-purple-600">${product.price}</span>
+                  <div className="flex items-center justify-between mb-6">
+                    <span className="text-2xl font-bold text-foreground">${product.price}</span>
                     <div className="flex space-x-1">
                       {product.colors.slice(0, 3).map((color, index) => (
                         <div 
                           key={index} 
-                          className={`w-4 h-4 rounded-full border-2 border-gray-300 ${
+                          className={`w-4 h-4 rounded-full border-2 border-border ${
                             color === 'black' ? 'bg-black' :
                             color === 'white' ? 'bg-white' :
                             color === 'navy' ? 'bg-blue-900' :
@@ -263,22 +263,22 @@ const Shop = () => {
                         />
                       ))}
                       {product.colors.length > 3 && (
-                        <span className="text-xs text-gray-500">+{product.colors.length - 3}</span>
+                        <span className="text-xs text-muted-foreground">+{product.colors.length - 3}</span>
                       )}
                     </div>
                   </div>
 
-                  <div className="flex gap-2">
+                  <div className="flex gap-3">
                     <Button 
                       onClick={() => handleAddToCart(product)}
-                      className="flex-1 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700"
+                      className="flex-1 bg-accent hover:bg-accent/90 text-accent-foreground"
                     >
                       Add to Cart
                     </Button>
                     <Button 
                       asChild 
                       variant="outline" 
-                      className="border-purple-200 hover:bg-purple-50"
+                      className="border-border hover:bg-muted/50"
                     >
                       <Link to={`/product/${product.id}`}>View</Link>
                     </Button>
@@ -290,10 +290,10 @@ const Shop = () => {
         </div>
 
         {filteredProducts.length === 0 && (
-          <div className="text-center py-16">
-            <div className="text-6xl mb-4">🔍</div>
-            <h3 className="text-2xl font-semibold text-gray-900 mb-2">No products found</h3>
-            <p className="text-gray-600">Try adjusting your search or filters</p>
+          <div className="text-center py-24">
+            <div className="text-6xl mb-6">🔍</div>
+            <h3 className="text-2xl font-semibold text-foreground mb-3">No products found</h3>
+            <p className="text-muted-foreground">Try adjusting your search or filters</p>
           </div>
         )}
       </div>

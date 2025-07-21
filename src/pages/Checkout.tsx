@@ -71,11 +71,11 @@ const Checkout = () => {
 
   if (items.length === 0) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-blue-50 flex items-center justify-center">
+      <div className="min-h-screen bg-background flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">No Items to Checkout</h1>
-          <p className="text-xl text-gray-600 mb-8">Add some items to your cart first!</p>
-          <Button asChild size="lg" className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700">
+          <h1 className="text-5xl lg:text-6xl font-bold text-foreground mb-6">No items to checkout</h1>
+          <p className="text-xl text-muted-foreground mb-12">Add some items to your cart first!</p>
+          <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground">
             <Link to="/shop">Browse Products</Link>
           </Button>
         </div>
@@ -84,16 +84,16 @@ const Checkout = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-blue-50">
+    <div className="min-h-screen bg-background">
       {/* Navigation */}
-      <nav className="bg-white/80 backdrop-blur-md border-b border-purple-100 sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
+      <nav className="bg-background/80 backdrop-blur-md border-b border-border sticky top-0 z-50">
+        <div className="max-w-6xl mx-auto px-6 lg:px-8">
+          <div className="flex justify-between items-center h-20">
             <Link to="/" className="flex items-center space-x-2">
-              <div className="w-10 h-10 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg">T&H</span>
+              <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+                <span className="text-primary-foreground font-bold text-sm">T&H</span>
               </div>
-              <span className="text-xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+              <span className="text-xl font-semibold text-foreground">
                 Tees & Hoodies Hub
               </span>
             </Link>
@@ -101,74 +101,74 @@ const Checkout = () => {
         </div>
       </nav>
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="max-w-6xl mx-auto px-6 lg:px-8 py-16">
         {/* Breadcrumb */}
-        <div className="flex items-center space-x-2 mb-8 text-sm">
-          <Link to="/cart" className="flex items-center text-purple-600 hover:text-purple-700">
+        <div className="flex items-center space-x-2 mb-12 text-sm">
+          <Link to="/cart" className="flex items-center text-foreground hover:text-muted-foreground">
             <ArrowLeft className="h-4 w-4 mr-1" />
             Back to Cart
           </Link>
         </div>
 
-        <div className="mb-8">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Checkout</h1>
-          <p className="text-xl text-gray-600">Complete your order</p>
+        <div className="mb-16">
+          <h1 className="text-5xl lg:text-6xl font-bold text-foreground mb-6">Checkout</h1>
+          <p className="text-xl text-muted-foreground">Complete your order</p>
         </div>
 
         <form onSubmit={handleSubmit}>
-          <div className="grid lg:grid-cols-3 gap-8">
+          <div className="grid lg:grid-cols-3 gap-12">
             {/* Checkout Form */}
-            <div className="lg:col-span-2 space-y-6">
+            <div className="lg:col-span-2 space-y-8">
               {/* Contact Information */}
-              <Card className="bg-white/80 backdrop-blur-sm border-purple-100">
+              <Card className="bg-card border-border">
                 <CardHeader>
-                  <CardTitle className="flex items-center">
+                  <CardTitle className="flex items-center text-foreground">
                     <Phone className="h-5 w-5 mr-2" />
                     Contact Information
                   </CardTitle>
                 </CardHeader>
-                <CardContent className="space-y-4">
-                  <div className="grid grid-cols-2 gap-4">
+                <CardContent className="space-y-6">
+                  <div className="grid grid-cols-2 gap-6">
                     <div>
-                      <Label htmlFor="firstName">First Name *</Label>
+                      <Label htmlFor="firstName" className="text-foreground">First Name *</Label>
                       <Input
                         id="firstName"
                         value={formData.firstName}
                         onChange={(e) => handleInputChange("firstName", e.target.value)}
-                        className="border-purple-200 focus:border-purple-400"
+                        className="border-border focus:border-accent bg-background mt-2"
                         required
                       />
                     </div>
                     <div>
-                      <Label htmlFor="lastName">Last Name *</Label>
+                      <Label htmlFor="lastName" className="text-foreground">Last Name *</Label>
                       <Input
                         id="lastName"
                         value={formData.lastName}
                         onChange={(e) => handleInputChange("lastName", e.target.value)}
-                        className="border-purple-200 focus:border-purple-400"
+                        className="border-border focus:border-accent bg-background mt-2"
                         required
                       />
                     </div>
                   </div>
                   <div>
-                    <Label htmlFor="email">Email Address *</Label>
+                    <Label htmlFor="email" className="text-foreground">Email Address *</Label>
                     <Input
                       id="email"
                       type="email"
                       value={formData.email}
                       onChange={(e) => handleInputChange("email", e.target.value)}
-                      className="border-purple-200 focus:border-purple-400"
+                      className="border-border focus:border-accent bg-background mt-2"
                       required
                     />
                   </div>
                   <div>
-                    <Label htmlFor="phone">Phone Number *</Label>
+                    <Label htmlFor="phone" className="text-foreground">Phone Number *</Label>
                     <Input
                       id="phone"
                       type="tel"
                       value={formData.phone}
                       onChange={(e) => handleInputChange("phone", e.target.value)}
-                      className="border-purple-200 focus:border-purple-400"
+                      className="border-border focus:border-accent bg-background mt-2"
                       placeholder="+233 XX XXX XXXX"
                       required
                     />
@@ -177,39 +177,39 @@ const Checkout = () => {
               </Card>
 
               {/* Delivery Address */}
-              <Card className="bg-white/80 backdrop-blur-sm border-purple-100">
+              <Card className="bg-card border-border">
                 <CardHeader>
-                  <CardTitle className="flex items-center">
+                  <CardTitle className="flex items-center text-foreground">
                     <Truck className="h-5 w-5 mr-2" />
                     Delivery Address
                   </CardTitle>
                 </CardHeader>
-                <CardContent className="space-y-4">
+                <CardContent className="space-y-6">
                   <div>
-                    <Label htmlFor="address">Street Address *</Label>
+                    <Label htmlFor="address" className="text-foreground">Street Address *</Label>
                     <Input
                       id="address"
                       value={formData.address}
                       onChange={(e) => handleInputChange("address", e.target.value)}
-                      className="border-purple-200 focus:border-purple-400"
+                      className="border-border focus:border-accent bg-background mt-2"
                       required
                     />
                   </div>
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-2 gap-6">
                     <div>
-                      <Label htmlFor="city">City *</Label>
+                      <Label htmlFor="city" className="text-foreground">City *</Label>
                       <Input
                         id="city"
                         value={formData.city}
                         onChange={(e) => handleInputChange("city", e.target.value)}
-                        className="border-purple-200 focus:border-purple-400"
+                        className="border-border focus:border-accent bg-background mt-2"
                         required
                       />
                     </div>
                     <div>
-                      <Label htmlFor="region">Region *</Label>
+                      <Label htmlFor="region" className="text-foreground">Region *</Label>
                       <Select value={formData.region} onValueChange={(value) => handleInputChange("region", value)}>
-                        <SelectTrigger className="border-purple-200">
+                        <SelectTrigger className="border-border mt-2">
                           <SelectValue placeholder="Select region" />
                         </SelectTrigger>
                         <SelectContent>
@@ -221,39 +221,39 @@ const Checkout = () => {
                     </div>
                   </div>
                   <div>
-                    <Label htmlFor="postalCode">Postal Code (Optional)</Label>
+                    <Label htmlFor="postalCode" className="text-foreground">Postal Code (Optional)</Label>
                     <Input
                       id="postalCode"
                       value={formData.postalCode}
                       onChange={(e) => handleInputChange("postalCode", e.target.value)}
-                      className="border-purple-200 focus:border-purple-400"
+                      className="border-border focus:border-accent bg-background mt-2"
                     />
                   </div>
                 </CardContent>
               </Card>
 
               {/* Payment Method */}
-              <Card className="bg-white/80 backdrop-blur-sm border-purple-100">
+              <Card className="bg-card border-border">
                 <CardHeader>
-                  <CardTitle className="flex items-center">
+                  <CardTitle className="flex items-center text-foreground">
                     <CreditCard className="h-5 w-5 mr-2" />
                     Payment Method
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <RadioGroup value={paymentMethod} onValueChange={setPaymentMethod}>
-                    <div className="flex items-center space-x-2 p-4 border border-purple-200 rounded-lg">
+                    <div className="flex items-center space-x-3 p-6 border border-border rounded-xl">
                       <RadioGroupItem value="cod" id="cod" />
                       <Label htmlFor="cod" className="flex-1">
-                        <div className="font-semibold">Cash on Delivery</div>
-                        <div className="text-sm text-gray-600">Pay when your order arrives</div>
+                        <div className="font-semibold text-foreground">Cash on Delivery</div>
+                        <div className="text-sm text-muted-foreground">Pay when your order arrives</div>
                       </Label>
                     </div>
-                    <div className="flex items-center space-x-2 p-4 border border-gray-200 rounded-lg opacity-50">
+                    <div className="flex items-center space-x-3 p-6 border border-border rounded-xl opacity-50">
                       <RadioGroupItem value="paystack" id="paystack" disabled />
                       <Label htmlFor="paystack" className="flex-1">
-                        <div className="font-semibold">Paystack (Coming Soon)</div>
-                        <div className="text-sm text-gray-600">Pay with card or mobile money</div>
+                        <div className="font-semibold text-foreground">Paystack (Coming Soon)</div>
+                        <div className="text-sm text-muted-foreground">Pay with card or mobile money</div>
                       </Label>
                     </div>
                   </RadioGroup>
@@ -263,16 +263,16 @@ const Checkout = () => {
 
             {/* Order Summary */}
             <div className="lg:col-span-1">
-              <Card className="bg-white/80 backdrop-blur-sm border-purple-100 sticky top-24">
+              <Card className="bg-card border-border sticky top-32">
                 <CardHeader>
-                  <CardTitle>Order Summary</CardTitle>
+                  <CardTitle className="text-foreground">Order Summary</CardTitle>
                 </CardHeader>
-                <CardContent className="space-y-4">
+                <CardContent className="space-y-6">
                   {/* Order Items */}
-                  <div className="space-y-3">
+                  <div className="space-y-4">
                     {items.map((item) => (
-                      <div key={item.id} className="flex items-center space-x-3">
-                        <div className="w-12 h-12 rounded overflow-hidden bg-gray-100 flex-shrink-0">
+                      <div key={item.id} className="flex items-center space-x-4">
+                        <div className="w-12 h-12 rounded-lg overflow-hidden bg-muted flex-shrink-0">
                           <img 
                             src={item.image} 
                             alt={item.name}
@@ -280,44 +280,44 @@ const Checkout = () => {
                           />
                         </div>
                         <div className="flex-1 min-w-0">
-                          <h4 className="text-sm font-medium text-gray-900 truncate">{item.name}</h4>
-                          <p className="text-xs text-gray-600">{item.size} • {item.color} • Qty: {item.quantity}</p>
+                          <h4 className="text-sm font-medium text-foreground truncate">{item.name}</h4>
+                          <p className="text-xs text-muted-foreground">{item.size} • {item.color} • Qty: {item.quantity}</p>
                         </div>
-                        <div className="text-sm font-medium text-gray-900">
+                        <div className="text-sm font-medium text-foreground">
                           ${(item.price * item.quantity).toFixed(2)}
                         </div>
                       </div>
                     ))}
                   </div>
 
-                  <div className="border-t border-gray-200 pt-4 space-y-2">
+                  <div className="border-t border-border pt-6 space-y-3">
                     <div className="flex justify-between text-sm">
-                      <span>Subtotal</span>
-                      <span>${subtotal.toFixed(2)}</span>
+                      <span className="text-muted-foreground">Subtotal</span>
+                      <span className="text-foreground">${subtotal.toFixed(2)}</span>
                     </div>
                     <div className="flex justify-between text-sm">
-                      <span>Shipping</span>
+                      <span className="text-muted-foreground">Shipping</span>
                       <span className="text-green-600">Free</span>
                     </div>
                     <div className="flex justify-between text-sm">
-                      <span>Tax</span>
-                      <span>${tax.toFixed(2)}</span>
+                      <span className="text-muted-foreground">Tax</span>
+                      <span className="text-foreground">${tax.toFixed(2)}</span>
                     </div>
-                    <div className="flex justify-between text-lg font-bold pt-2 border-t border-gray-200">
-                      <span>Total</span>
-                      <span>${total.toFixed(2)}</span>
+                    <div className="flex justify-between text-lg font-bold pt-3 border-t border-border">
+                      <span className="text-foreground">Total</span>
+                      <span className="text-foreground">${total.toFixed(2)}</span>
                     </div>
                   </div>
 
                   <Button 
                     type="submit" 
                     size="lg" 
-                    className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700"
+                    className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-medium"
                   >
                     Place Order
                   </Button>
 
-                  <div className="text-xs text-gray-600 text-center">
+                  <div className="text-xs text-muted-foreground text-center">
                     By placing your order, you agree to our terms and conditions.
                   </div>
                 </CardContent>
